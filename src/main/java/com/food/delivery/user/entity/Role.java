@@ -1,5 +1,5 @@
 package com.food.delivery.user.entity;
 
-public enum RoleStatus {
+public enum Role {
 	USER, ADMIN
 }

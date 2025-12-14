@@ -4,21 +4,35 @@
 
 <mapper namespace="com.food.delivery.user.mapper.UserMapper">
 
-    <!-- SELECT example -->
-    <select id="findAll" resultType="com.food.delivery.user.dto.UserDTO">
-        SELECT *
-        FROM user;
+    <!--계정 조회-->
+    <select id="findUser" parameterType="String" resultType="com.food.delivery.user.dto.UserDTO">
+        SELECT * FROM users u
+        WHERE u.username = #{value}
     </select>
-
-    <!-- INSERT example -->
+    <!--계정 추가-->
     <insert id="insertUser" parameterType="com.food.delivery.user.dto.UserDTO">
-        INSERT INTO users (
-        username,
-        email
-        ) VALUES (
-        #{username},
-        #{email}
-        );
+        INSERT INTO users
+        (
+            location,
+            username,
+            phone,
+            email,
+            password_hash,
+            status,
+            role
+        )
+        values (
+            #{location},
+            #{username},
+            #{phone},
+            #{email},
+            #{passwordHash},
+            #{status},
+            #{role}
+        )
     </insert>
+    <!--계정 수정-->
+    <!--계정 삭제-->
+
 
 </mapper>

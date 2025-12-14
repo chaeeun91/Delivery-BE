@@ -14,11 +14,11 @@ public class UserService {
 
 	private final UserMapper userMapper;
 
-	public List<User> findAll() {
-		return userMapper.findAll();
+	public UserDTO findUser(String username) {
+		return userMapper.findUser(username);
 	}
-//
-//	public int insertUser(UserDTO dto) {
-//		return userMapper.insertUser(dto);
-//	}
+
+	public int insertUser(UserDTO dto) {
+		return userMapper.insertUser(dto);
+	}
 }

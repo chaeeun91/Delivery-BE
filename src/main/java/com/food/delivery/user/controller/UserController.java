@@ -1,15 +1,9 @@
 package com.food.delivery.user.controller;
 
 import com.food.delivery.user.dto.UserDTO;
-import com.food.delivery.user.entity.User;
 import com.food.delivery.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,14 +11,17 @@ public class UserController {
 
 	private final UserService userService;
 
-	@GetMapping("/test")
-	public List<User> test() {
-		List<User> list = userService.findAll();
-		return list;
+	// TODO: PostMapping으로 바꿔야함
+	// http://localhost:8080/findUser?username=tom
+	@GetMapping("/findUser")
+	public UserDTO findUser(@RequestParam String username) {
+		return userService.findUser(username);
 	}
 
-//	@PostMapping("/insertUser")
-//	public int inserUser(@RequestBody UserDTO dto) {
-//		return userService.insertUser(dto);
-//	}
+	// POST맨으로 해야함
+	@PostMapping("/insertUser")
+	public int insertUser(@RequestBody UserDTO dto) {
+		return userService.insertUser(dto);
+	}
+
 }

@@ -15,24 +15,34 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+@Table(name="users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long userId;
+	private Long userId; // 자동생성됨
 
 	@Column(length = 20, nullable = false)
 	private String location;
 
+	@Column(name = "username", nullable = false)
+	private String username;
+
+	@Column(name = "phone", nullable = false)
 	private String phone;
 
-	private String password;
+	@Column(name = "email", nullable = false)
+	private String email;
+
+	@Column(name = "password_hash", nullable = false)
+	private String passwordHash;
+
+	@Column(name = "status", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private Status status;
 
 	@Enumerated(EnumType.STRING)
-	private UserStatus userStatus;
-
-	@Enumerated(EnumType.STRING)
-	private RoleStatus roleStatus;
+	private Role role;
 
 	@CreatedDate
 	@Column(updatable = false)

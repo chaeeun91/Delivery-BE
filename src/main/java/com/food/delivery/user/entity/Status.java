@@ -1,5 +1,5 @@
 package com.food.delivery.user.entity;
 
-public enum UserStatus {
+public enum Status {
 	ACTIVE, BLOCKED, DELETED
 }
