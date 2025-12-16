@@ -1,4 +1,4 @@
-package com.food.delivery.controller; // ★ 여기 패키지 이름이 중요합니다!
+package com.food.delivery.controller;
 
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
